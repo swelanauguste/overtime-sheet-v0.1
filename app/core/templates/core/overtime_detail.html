@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% load humanize %}
+
+{% block content %}
+
+<div class="container my-5">
+    <div class="p-3">
+        <a href="/">Home</a>
+    </div>
+    <div class="col-lg-6 mx-auto shadow p-5 rounded-4">
+        <div class="h3">{{object.reason}}</div>
+        <hr>
+        <div>
+            <span>Start: </span>
+            <span>{{object.start_date}} - {{object.start_time}}</span>
+        </div>
+        <div>
+            <span>End: </span>
+            <span>{{object.end_date}} - {{object.end_time}}</span>
+        </div>
+        <div>
+            <span>Hours and Multiplier: </span>
+            <span>({{object.get_hours}} {{object.multiplier}})<span>
+        </div>
+        <div>
+            <span>Rate: </span>
+            <span>{{object.hourly_rate}}<span>
+        </div>
+        <div>
+            <span>Rate: </span>
+            <span>{{object.salary}}<span>
+        </div>
+        <hr>
+        <div>
+            <span>Overtime: </span>
+            <span>{{object.calculate_overtime}}<span>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
